@@ -12,7 +12,7 @@
 
 #include "printf.h"
 
-ft_printf_hexa(int n, int capital)
+int	ft_printf_hexa(int n, int capital)
 {
 	int	i;
 

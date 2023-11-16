@@ -18,11 +18,11 @@ int	ft_printf_ptr(unsigned long ptr)
 
 	i = 0;
 	if (ptr == 0)
-		return (ft_print_str(NIL));
+		return (ft_printf_str(NIL));
 	if (ptr < 16)
-		i = i + ft_print_str("0x");
+		i = i + ft_printf_str("0x");
 	if (ptr >= 16)
-		i = i + ft_print_ptr(ptr / 16);
-	i = i + ft_print_hexa(ptr % 16, 0);
+		i = i + ft_printf_ptr(ptr / 16);
+	i = i + ft_printf_hexa(ptr % 16, 0);
 	return (i);
 }

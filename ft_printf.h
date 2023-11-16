@@ -20,5 +20,7 @@ int	ft_print_char(int c);
 int	ft_print_int(int n);
 int	ft_printf_str(char *str);
 int	ft_printf_unsignedint(unsigned int n);
+int	ft_printf_ptr(unsigned long ptr)
+int	ft_printf_hexa(int n, int capital)
 
 #endif
