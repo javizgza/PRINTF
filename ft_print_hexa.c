@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_hexa.c                                   :+:      :+:    :+:   */
+/*   ft_print_hexa.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jazarago <jazarago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 14:04:42 by jazarago          #+#    #+#             */
-/*   Updated: 2023/11/12 16:09:14 by jazarago         ###   ########.fr       */
+/*   Created: 2023/11/19 16:25:25 by jazarago          #+#    #+#             */
+/*   Updated: 2023/11/19 18:11:58 by jazarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
-int	ft_printf_hexa(int n, int capital)
+int	ft_print_hexa(unsigned int n, int capital)
 {
 	int	i;
 
 	i = 0;
 	if (n >= 16)
 	{
-		i = i + ft_printf_hexa(n / 16, capital);
+		i = i + ft_print_hexa(n / 16, capital);
 	}
 	if (n % 16 < 10)
 	{
-		i = i + ft_printf_hexa(n % 16, capital);
+		i = i + ft_print_char(n % 16 + '0');
 	}
 	else if (capital)
 	{
-		i = i + ft_printf_hexa(n % 16 + 'A');
+		i = i + ft_print_char(n % 16 + 'A' - 10);
 	}
 	else
 	{
-		i = i + ft_printf_hexa(n % 16 + 'a');
+		i = i + ft_print_char(n % 16 + 'a' - 10);
 	}
 	return (i);
 }

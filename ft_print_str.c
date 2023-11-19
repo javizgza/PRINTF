@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_str.c                                    :+:      :+:    :+:   */
+/*   ft_print_str.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jazarago <jazarago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 10:49:20 by jazarago          #+#    #+#             */
-/*   Updated: 2023/11/09 12:05:50 by jazarago         ###   ########.fr       */
+/*   Created: 2023/11/19 16:25:50 by jazarago          #+#    #+#             */
+/*   Updated: 2023/11/19 18:23:20 by jazarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
-ft_printf_str(char *str)
+int	ft_print_str(char *str)
 {
 	int	i;
 
 	i = 0;
-	if (str[i] == NULL)
+	if (str == NULL)
 	{
-		write(1, &"(NULL)", 6);
+		write(1, &"(null)", 6);
 		return (6);
 	}
 	while (str[i])

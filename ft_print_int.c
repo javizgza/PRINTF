@@ -1,19 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_char.c                                    :+:      :+:    :+:   */
+/*   ft_print_int.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jazarago <jazarago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 10:35:09 by jazarago          #+#    #+#             */
-/*   Updated: 2023/11/09 12:04:34 by jazarago         ###   ########.fr       */
+/*   Created: 2023/11/19 16:25:35 by jazarago          #+#    #+#             */
+/*   Updated: 2023/11/19 18:13:15 by jazarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
-int	ft_printf_char(int c)
+int	ft_print_int(int n)
 {
-	write(1, &c, 1);
-	return (1);
+	int	i;
+
+	i = 0;
+	if (n == -2147483648)
+	{
+		write(1, &"-2147483648", 11);
+		return (11);
+	}
+	if (n < 0)
+	{
+		i = i + ft_print_char('-');
+		n = n * -1;
+	}
+	i = i + ft_print_unsignedint(n);
+	return (i);
 }
