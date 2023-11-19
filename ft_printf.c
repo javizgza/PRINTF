@@ -12,26 +12,49 @@
 
 #include "printf.h"
 
-static int	ft_when(const char *case, va_list ap)
+static int	ft_when(const char *format, va_list args)
 {
 	int	i;
 
 	i = 0;
-	if (*case == 'c')
-		i += ft_printf_char(va_arg(ap, int));
-	else if (*case == 's')
-		i += ft_printf_str(va_arg(ap, char *));
-	else if (*case == 'p')
-		i += ft_printf_ptr(va_arg(ap, unsigned long));
-	else if (*case == 'd' || *input == 'i')
-		i += ft_printf_int(va_arg(ap, int));
-	else if (*case == 'u')
-		i += ft_printf_unsignedint(va_arg(ap, unsigned int));
-	else if (*case == 'x')
-		i += ft_printf_hexa(va_arg(ap, unsigned int), 0);
-	else if (*case == 'X')
-		i += ft_printf_hexa(va_arg(ap, unsigned int), 1);
-	else if (*case == '%')
+	if (*format == 'c')
+		i += ft_printf_char(va_arg(args, int));
+	else if (*format == 's')
+		i += ft_printf_str(va_arg(args, char *));
+	else if (*format == 'p')
+		i += ft_printf_ptr(va_arg(args, unsigned long));
+	else if (*format == 'd' || *format == 'i')
+		i += ft_printf_int(va_arg(args, int));
+	else if (*format == 'u')
+		i += ft_printf_unsignedint(va_arg(args, unsigned int));
+	else if (*format == 'x')
+		i += ft_printf_hexa(va_arg(args, unsigned int), 0);
+	else if (*format == 'X')
+		i += ft_printf_hexa(va_arg(args, unsigned int), 1);
+	else if (*format == '%')
 		i += ft_printf_char('%');
 	return (i);
+}
 
+int	ft_printf(const char *format, ...)
+{
+	va_list	args;
+	int	i;
+
+	i = 0;
+	va_start(args, format);
+	while (*format)
+	{
+		if (*format == '%' && *(format + 1) != '\0')
+		{
+			i = i + ft_when(format + 1, args);
+			format++;
+		}
+		else
+			i = i + ft_printf_char(*case);
+		format++;
+
+	}
+	va_end(args);
+	return (i);
+}
