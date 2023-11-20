@@ -6,7 +6,7 @@
 /*   By: jazarago <jazarago@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 16:25:42 by jazarago          #+#    #+#             */
-/*   Updated: 2023/11/19 18:24:14 by jazarago         ###   ########.fr       */
+/*   Updated: 2023/11/20 09:38:45 by jazarago         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_print_ptr(unsigned long ptr)
 
 	i = 0;
 	if (ptr == 0)
-		return (ft_print_str("(nil)"));
+		return (ft_print_str("0x0"));
 	if (ptr < 16)
 		i = i + ft_print_str("0x");
 	if (ptr >= 16)
