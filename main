@@ -1,0 +1,55 @@
+
+
+#include "ft_print.h"
+#include <stdio.h>
+
+void leaks(void)
+{
+	system("leaks -q a.out");
+}
+
+int main(void)
+{
+	atexit(leaks);
+
+	ft_printf("char testing: %c\nNullChar:%c\n", c, NULL);
+	//printf("charsize: %d\n", ft_printf("%c\n", NULL));
+	//printf("charsize: %d\n", printf("%c\n", 0));
+
+	ft_printf("string testing: %s%s\n", p, NULL);
+	//printf("stringsize: %d\n", ft_printf("%s\n", NULL);
+	//printf("stringsize: %d\n", printf("%s\n", NULL);
+
+	ft_printf("int testing: %d %i\n", 0, 30);
+	//printf("intsize: %d\n", ft_printf("%d\n", 0);
+	//printf("intsize: %d\n", printf("%d\n", 0);
+
+	ft_printf("testing %% ft_printf. \n", 1);
+	//printf("size%%: %d\n", ft_printf("%%\n", 1);
+
+	ft_printf("uint testing: %u\n", -1);
+	//printf("uintsize: %d\n", ft_printf("%u\n", -50);
+	//printf("uintsize: %d\n", printf("%u\n", -50);
+
+	ft_printf("pointer testing: %p\n", &a);
+	//printf("pointersize: %d\n", ft_printf("%p\n", &a));
+	//printf("pointersize: %d\n, printf("%p\n", &a));
+
+	ft_printf("hexalower: %x\n", a);
+	//printf("hexasize: %d\n", ft_printf("%x\n", a));
+	//printf("hexasize: %d\n", printf("%x\n", a));
+
+	ft_printf("hexaupper: %X\n", a)
+	//printf("hexaupper: %d\n", ft_printf("%X\n", a));
+	//printf("hexaupper: %d\n", printf("%X\n", a));
+
+	printf("nullchar: %c\nNullstr%s\n", 0, NULL);
+	printf("nullint: %d\niInti: %i\n", 0, 30);
+	printf("uint: %u\n", -1);
+	printf("ptrhexa %p\n", &a);
+	printf("hexalower %x\n", A);
+	printf("hexaupper %X\n, a);
+
+	ft_printf("\n");
+	return (0);
+}
